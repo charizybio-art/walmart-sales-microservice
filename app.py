@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import torch
 from torch import nn
 import joblib
@@ -32,7 +32,7 @@ model.eval()
 
 @app.route("/")
 def home():
-    return "Walmart Sales Prediction Microservice is running."
+    return render_template("index.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
